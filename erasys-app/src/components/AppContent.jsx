@@ -24,27 +24,43 @@ class UserData extends React.Component {
 // plus: false
 // status: "ONLINE"
 // TODO clean up user login date. it is UGLYYYY
+// TODO handle img url string
 const UserComp = (props) => {
         if(!props){
             return(<div>User Error</div>)
         }
-        var stat = ''
-        if(props.plus == true){
+        var stat, url = ''
+        if(props.plus === true){
             stat = '+'
         }else{
             stat = '-'
         }
 
         console.log(props)
-        return(
-        <div>
-            <div className="usr-name">{props.name}</div>
-            <div className="usr-log">{props.log}</div> 
-            <div className="usr-status">{stat}</div>
-            <div className="usr-plus">{props.plus}</div>
-            {/* <div className="usr-pic"><img src={props.picture.url}></img></div> */}
-        </div>
-        )
+        let obj = Object.create(props)
+        if (typeof props.picture === "undefined"){ //test if picture prop is available
+            console.log('the property is not available...',); // 
+            // obj.picture[url] = 'https://loremflickr.com/424/424/gay,man/all?lock=8764'
+            return(
+                <div>
+                    <div className="usr-name">{props.name}</div>
+                    <div className="usr-log">{props.log}</div> 
+                    <div className="usr-status">{stat}</div>
+                    <div className="usr-plus">{props.plus}</div>
+                    <div className="usr-pic"><img src='https://loremflickr.com/424/424/gay,man/all?lock=8764'></img></div>
+                </div>
+                )
+        }else{
+            return(
+            <div>
+                <div className="usr-name">{props.name}</div>
+                <div className="usr-log">{props.log}</div> 
+                <div className="usr-status">{stat}</div>
+                <div className="usr-plus">{props.plus}</div>
+                <div className="usr-pic"><img src={props.picture.url}></img></div>
+            </div>
+            )
+        }
 }
 
 //First class for API fetched data
@@ -61,12 +77,10 @@ class Users extends React.Component {
         fetch("/api/search?length=32")
         .then( async (response) => {
             let data = await response.json()
-            console.log(data.items)
             return data.items //await promised data
         })
         .then( async results => { 
             await this.setState({results}) 
-            console.log(this.state);
         })
         .catch( err => console.log("error with user fetch data"))
     }
@@ -76,7 +90,6 @@ class Users extends React.Component {
             <div> users
                 <div className="content-wrapper">
                 {items.map(res => <div>
-                    {console.log(res)}
                         <UserData />
                         <UserComp id={res.id} plus={res.is_plus} log={res.last_login} name={res.name} status={res.online_status} picture={res.picture}/>
                     </div>
