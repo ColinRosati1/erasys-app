@@ -1,0 +1,11 @@
+@mixin flex-center($f-direction, $j-content, $a-items) {
+    display: flex;
+    justify-content: $j-content;
+    flex-direction: $f-direction;
+    align-items: $a-items;
+}
+
+.App {
+    width: 100vw;
+    @include flex-center(column, center, center);
+}
