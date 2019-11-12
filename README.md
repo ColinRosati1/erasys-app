@@ -1,80 +1,55 @@
-# Erasys JavaScript Trial Task
-Users are very important on PLANETROMEO. That's why we want you to implement an app that shows a list of users. We have included a simple server with two API endpoints that give you the required data.
+# Overveiw
+Populate Erasys data from two API end points into grid views
 
-## Requirements
-- Create a JavaScript app (you can use your favorite `npm` packages and frameworks) that shows the results in a layout similar to the following screenshot:
-![](./data/mockup.jpg)
+## Tasks
+Listen to Server Api calls. handle data and populate into grid view.
 
-- Make sure that a single item shows the following data:
-  - Username
-  - Age
-  - Image
-  - Location and distance
-  - Headline
-  - Relative last login time (e.g. 6 minutes ago)
 
-  *Hint: You can start by displaying the basic information and extend  it with the detailed information later.*
-
-  *The screenshot above is just an illustration of what we have in mind. Feel free to use it as a starting point, or implement your own design.*
-
-- The app should work on all screen sizes
-- Include your `git` history when you send us your code
-
-## Server
-1. Clone this repository
-2. `npm install`
-3. `npm start`
-4. The API is available on [http://localhost:3000](http://localhost:3000)
+## Context
+React, Jest, Flexbox, responsive
 
 ## API description
 ### `GET /api/search?length=32`
 ### `GET /api/search?length=32&sorting=[DISTANCE|ACTIVITY]`
 Returns a list of user profiles with some basic information.
 
-#### Example output
-```javascript
-{
-  "cursors": {
-    "after": (string)
-  },
-  "total": (number),
-  "items": [{
-    "id": (string),
-    "name": (string),
-    "picture": {
-      "comment": (string),
-      "url": (string)
-    },
-    ...
-  }]
-}
-```
+## Proposed Solution
+Make one component that asynchronisly populates API data into App.
+Check if data is in JSON
+Array Map results into unique DOM elements with: Username, Age, Image, Location and distance, 
+Headline, Relative last login time (e.g. 6 minutes ago)
+One Api grabs users, id, name, pic, log, status. Second Api gets all other user data.
+Create two react components to populate this data. One nested inside the other after retreived first set of data.
+This API data will all be in AppContent component. 
+Handle missing data with checks, error catch, or dummy data
 
-### `/api/profiles?ids=_id1_&ids=_id2_&ids=...`
-Returns an array of detailed user data matching the given ids.
+## The strengths of this solution:
+clean visualization
+quick component rendering
+modular components make for readability
+clearly defined state handling
 
-#### Example output
-```javascript
-[
-  {
-    "id": (string),
-    "location": {
-      "name": (string),
-      "distance": (number)
-    },
-    "headline": (string),
-    "personal": {
-      "age": (number),
-      ...
-    },
-    "sexual": {
-      "anal_position": (string),
-      ...
-    },
 
-    {
-      "id": (string),
-      ...
-    }
-]
-```
+## weakness of solution:
+Parent child relationship of components are not styled in a satisfying way.
+lots of TODO details incomplete.
+develop active, favourite, matching features
+develop feature to sort API call.
+I didnt get to any JEST testing. ALthough tried to catch API errors, and missing properties.
+Backend has a bug were the image url key is undefined, not even an empty object.
+No production build. Only works with $npm start
+
+
+## TODOS
+
+TODO make some sort of fixed position info element with active data. event listener on parent 
+rather then nested hover parent in sass.
+
+TODO round minutes to hours , days etc
+
+## Steps to Run
+1. Clone this repository
+2. npm install
+3. npm start at js-trail-task dir
+4. cd erasys-app
+5. npm start
