@@ -23,13 +23,24 @@ class UserData extends React.Component {
 // picture: {comment: "Bepdi be guc pogowibad nifet seldi cicho nu cobeowa ra idkidi hogup zunioj mukza cilik poiveafu.", url: "https://loremflickr.com/424/424/gay,man/all?lock=9475"}
 // plus: false
 // status: "ONLINE"
+// TODO clean up user login date. it is UGLYYYY
 const UserComp = (props) => {
+        if(!props){
+            return(<div>User Error</div>)
+        }
+        var stat = ''
+        if(props.plus == true){
+            stat = '+'
+        }else{
+            stat = '-'
+        }
 
         console.log(props)
         return(
         <div>
             <div className="usr-name">{props.name}</div>
-            <div className="usr-status">{props.status}</div>
+            <div className="usr-log">{props.log}</div> 
+            <div className="usr-status">{stat}</div>
             <div className="usr-plus">{props.plus}</div>
             {/* <div className="usr-pic"><img src={props.picture.url}></img></div> */}
         </div>
