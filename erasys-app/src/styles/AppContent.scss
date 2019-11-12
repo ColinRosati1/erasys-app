@@ -1,0 +1,23 @@
+@mixin flex-center($f-direction, $j-content, $a-items) {
+    display: flex;
+    justify-content: $j-content;
+    flex-direction: $f-direction;
+    align-items: $a-items;
+}
+
+.content-wrapper {
+    width: 80vw;
+    flex-wrap: wrap;
+    @include flex-center(row, center, center);
+}
+
+.usr-res {
+    max-width: 220px;
+    max-height: 500px;
+    padding: 0.5em;
+}
+
+.usr-pic img {
+    max-width: 220px;
+    max-height: 300px;
+}
