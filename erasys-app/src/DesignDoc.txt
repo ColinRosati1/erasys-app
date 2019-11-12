@@ -9,21 +9,22 @@ Populate Erasys data from two API end points in grid views
 Task 
 ----------------------
 Listen to Server Api calls. handle data and populate into grid view.
-One Api grads users, id, name, pic, log, status. Second Api gets all other user data.
-Create two react components to populate this data. One nested inside the other after first part
-of user data retreived. This API data will all be in AppContent component.
 
 Context
 ----------------------
-React, Jest, Flexbox
+React, Jest, Flexbox, responsive
 
 
 Proposed Solution
 ----------------------
 Make one component that asynchronisly populates API data into App.
 Check if data is in JSON
-Array Map results into unique DOM elements with: Username, Age, Image, Location and distance, Headline, Relative last login time (e.g. 6 minutes ago)
-
+Array Map results into unique DOM elements with: Username, Age, Image, Location and distance, 
+Headline, Relative last login time (e.g. 6 minutes ago)
+One Api grabs users, id, name, pic, log, status. Second Api gets all other user data.
+Create two react components to populate this data. One nested inside the other after first part
+of user data retreived. This API data will all be in AppContent component. 
+Handle missing data with checks, error catch, or dummy data
 
 The strengths of this design:
 ----------------------
