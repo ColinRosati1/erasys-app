@@ -2,7 +2,9 @@ import React from 'react';
 import '../styles/AppContent.css'
 
 const UserDataComp = (props) => {
-    console.log("usrdatacomp", props)
+    if(!props){
+        return(<div>User Error</div>)
+    }
 
     return(
         <div className="usr-data">
