@@ -9,6 +9,7 @@ const UserDataComp = (props) => {
 
     return(
         <div className="usr-data">
+            <div className="usr-age">{props.age + " y/o"}</div>
             <div className="usr-headline">{props.headline}</div>
             <div className="usr-location">{props.location.city + " | " + props.location.distance + "m"}</div>
             {/* <div className="usr-headline">{props.headline}</div>     */}
@@ -39,7 +40,7 @@ class UserData extends React.Component {
         let items = this.state.results;
         return(<div className={"usr-body"}>
             {items.map( res => <div>
-            <UserDataComp headline={res.headline} location={res.location} personal={res.personal} sexual={res.sexual}/>
+            <UserDataComp headline={res.headline} location={res.location} personal={res.personal} age={res.personal.age} sexual={res.sexual}/>
             </div>
         )}
         </div>)
@@ -61,7 +62,7 @@ const LastLog = (time) => {
         return Math.abs(Math.round(diff));
         }
  
-        var lastLog = _diff_minutes(d1, d2) + " minutes Since last loggin"
+        var lastLog = _diff_minutes(d1, d2) + " minutes ago"
     return lastLog;
 }
 

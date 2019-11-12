@@ -20,7 +20,8 @@
 
 .usr-res {
     max-width: 400px;
-    // max-height: 500px;
+    @include flex-center(column, center, center);
+    margin-bottom: 15px;
 }
 
 .usr-pic img {
@@ -36,4 +37,8 @@
 
 .usr-title {
     @include flex-center(row, center, center);
+}
+
+.usr-log {
+    font-size: 0.7em;
 }
