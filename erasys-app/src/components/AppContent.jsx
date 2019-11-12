@@ -5,8 +5,11 @@ const UserDataComp = (props) => {
     console.log("usrdatacomp", props)
 
     return(
-        <div>
-
+        <div className="usr-data">
+            <div className="usr-headline">{props.headline}</div>
+            <div className="usr-location">{props.location.city + " | " + props.location.distance}</div>
+            {/* <div className="usr-headline">{props.headline}</div>     */}
+            {/* <div className="usr-headline">{props.headline}</div> */}
         </div>
     )
 }
