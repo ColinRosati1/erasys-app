@@ -6,18 +6,30 @@
 }
 
 .content-wrapper {
+    font-size: 2em;
     width: 80vw;
     flex-wrap: wrap;
     @include flex-center(row, center, center);
 }
 
+.profile {
+    width: 420px;
+    padding: 0.9em;
+    @include flex-center(column, center, center);
+}
+
 .usr-res {
-    max-width: 220px;
-    max-height: 500px;
-    padding: 0.5em;
+    max-width: 400px;
+    // max-height: 500px;
 }
 
 .usr-pic img {
-    max-width: 220px;
-    max-height: 300px;
+    max-width: 400px;
+    max-height: 500px;
+}
+
+.usr-data {
+    @include flex-center(column, center, center);
+    max-width: 400px;
+    font-size: 0.7em;
 }

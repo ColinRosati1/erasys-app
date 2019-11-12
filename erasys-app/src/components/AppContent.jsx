@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/AppContent.css'
 
+// has extra props for more user detailz
 const UserDataComp = (props) => {
     if(!props){
         return(<div>User Error</div>)
@@ -9,9 +10,8 @@ const UserDataComp = (props) => {
     return(
         <div className="usr-data">
             <div className="usr-headline">{props.headline}</div>
-            <div className="usr-location">{props.location.city + " | " + props.location.distance}</div>
+            <div className="usr-location">{props.location.city + " | " + props.location.distance + "m"}</div>
             {/* <div className="usr-headline">{props.headline}</div>     */}
-            {/* <div className="usr-headline">{props.headline}</div> */}
         </div>
     )
 }
@@ -32,7 +32,6 @@ class UserData extends React.Component {
             return data //await promised data
           })  
           .then(async(results) => {
-                console.log(results)
                 await this.setState({results})
             })
     }
@@ -67,7 +66,6 @@ const UserComp = (props) => {
             stat = '-'
         }
 
-        console.log(props)
         let obj = Object.create(props)
         if (typeof props.picture === "undefined"){ //test if picture prop is available
             console.log('the property is not available...',); // 
@@ -120,9 +118,9 @@ class Users extends React.Component {
     render(){ // handle API data here. render each array object into DOM elements
         let items = this.state.results; // grab state data
         return(
-            <div> users
+            <div>
                 <div className="content-wrapper">
-                {items.map(res => <div>
+                {items.map(res => <div className="profile">
                         <UserComp id={res.id} plus={res.is_plus} log={res.last_login} name={res.name} status={res.online_status} picture={res.picture}/>
                         <UserData id={res.id} />
                     </div>

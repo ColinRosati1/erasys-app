@@ -1,4 +1,5 @@
 .content-wrapper {
+  font-size: 2em;
   width: 80vw;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
@@ -17,14 +18,48 @@
           align-items: center;
 }
 
+.profile {
+  width: 420px;
+  padding: 0.9em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .usr-res {
-  max-width: 220px;
-  max-height: 500px;
-  padding: 0.5em;
+  max-width: 400px;
 }
 
 .usr-pic img {
-  max-width: 220px;
-  max-height: 300px;
+  max-width: 400px;
+  max-height: 500px;
+}
+
+.usr-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 400px;
+  font-size: 0.7em;
 }
 /*# sourceMappingURL=AppContent.css.map */
