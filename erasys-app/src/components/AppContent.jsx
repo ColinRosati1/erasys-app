@@ -39,10 +39,21 @@ class Users extends React.Component {
         })
         .catch( err => console.log("error with user fetch data"))
     }
-    render(){
+    render(){ // handle API data here. render each array object into DOM elements
+        let items = this.state.results; // grab state data
         return(
             <div> users
-                <UserData/>
+                <div className="content-wrapper">
+                {items.map(res => <div>
+                    {console.log(res)}
+                        <UserData />
+                    </div>
+                )
+
+                   
+                }
+                    
+                </div>
             </div>
         )
     }
