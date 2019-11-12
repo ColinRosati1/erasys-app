@@ -23,6 +23,7 @@ class UserData extends React.Component {
 class Users extends React.Component {
     constructor(){
         super()
+        this.state = {results: []};
     }
     componentDidMount(){
         const url = "/api/search?length=32";
@@ -32,8 +33,11 @@ class Users extends React.Component {
             console.log(data.items)
             return data.items //await promised data
         })
-        .then( data => console.log(data) )
-        // .catch( err => console.log("error with user fetch data"))
+        .then( async results => { 
+            await this.setState({results}) 
+            console.log(this.state);
+        })
+        .catch( err => console.log("error with user fetch data"))
     }
     render(){
         return(
