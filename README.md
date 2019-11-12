@@ -50,7 +50,9 @@ TODO round minutes to hours , days etc
 
 ## Steps to Run
 1. Clone this repository
-2. npm install
-3. npm start at js-trail-task dir
-4. cd erasys-app
-5. npm start
+2. cd .\erasys-app\
+3. npm install
+4. npm start
+5. cd .\erasys-app\
+6. npm install
+7. npm start
