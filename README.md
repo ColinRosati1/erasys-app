@@ -11,6 +11,7 @@ React, Jest, Flexbox, responsive
 ## API description
 ### `GET /api/search?length=32`
 ### `GET /api/search?length=32&sorting=[DISTANCE|ACTIVITY]`
+### `GET /api/profiles?ids=_id1_&ids=_id2_&ids=`
 Returns a list of user profiles with some basic information.
 
 ## Proposed Solution
