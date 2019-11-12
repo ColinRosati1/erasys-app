@@ -33,3 +33,7 @@
     max-width: 400px;
     font-size: 0.7em;
 }
+
+.usr-title {
+    @include flex-center(row, center, center);
+}

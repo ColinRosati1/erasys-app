@@ -46,6 +46,25 @@ class UserData extends React.Component {
     }
 }
 
+// return the time n mins since last longed in
+// coerse date format so can subract two dates
+// TODO round minutes to hours , days etc
+const LastLog = (time) => {
+       
+       // To set two dates to two variables 
+       var d1 = new Date(); 
+       var d2 = new Date(time); 
+
+       function _diff_minutes(dt2, dt1){
+        var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+        diff /= 60;
+        return Math.abs(Math.round(diff));
+        }
+ 
+        var lastLog = _diff_minutes(d1, d2) + " minutes Since last loggin"
+    return lastLog;
+}
+
 //create User component to  put data into DOM
 // id: 1432659330859008
 // log: "2019-11-10T14:26:54.876Z"
@@ -65,29 +84,30 @@ const UserComp = (props) => {
         }else{
             stat = '-'
         }
+        let time = LastLog(props.log)
 
         let obj = Object.create(props)
         if (typeof props.picture === "undefined"){ //test if picture prop is available
-            console.log('the property is not available...',); // 
+            console.log('the url property is not available...',); // 
             // obj[picture] = 's'
             url = 'https://loremflickr.com/424/424/gay,man/all?lock=8764'
             return(
                 <div className="usr-res">
                     <div className="usr-pic"><img src={url}></img></div>
-                    <div className="usr-name">{props.name}</div>
-                    <div className="usr-log">{props.log}</div> 
-                    <div className="usr-status">{stat}</div>
-                    <div className="usr-plus">{props.plus}</div>
+                    <div className="usr-title"><div className="usr-name">{props.name}</div><div className="usr-plus">{stat}</div></div>
+                    <div className="usr-log">{time}</div> 
+                    {/* <div className="usr-status">{props.status}</div> */}
+                    {/* <div className="usr-plus">{props.plus}</div> */}
                 </div>
                 )
         }else{
             return(
             <div className="usr-res">
                 <div className="usr-pic"><img src={props.picture.url}></img></div>
-                <div className="usr-name">{props.name}</div>
-                <div className="usr-log">{props.log}</div> 
-                <div className="usr-status">{stat}</div>
-                <div className="usr-plus">{props.plus}</div>
+                <div className="usr-title"><div className="usr-name">{props.name + "  "}</div><div className="usr-plus">{"  " + stat}</div></div>
+                    <div className="usr-log">{time}</div> 
+                    {/* <div className="usr-status">{props.status}</div> */}
+                {/* <div className="usr-plus">{props.plus}</div> */}
                 
             </div>
             )
@@ -121,7 +141,7 @@ class Users extends React.Component {
             <div>
                 <div className="content-wrapper">
                 {items.map(res => <div className="profile">
-                        <UserComp id={res.id} plus={res.is_plus} log={res.last_login} name={res.name} status={res.online_status} picture={res.picture}/>
+                        <UserComp key={res.id} id={res.id} plus={res.is_plus} log={res.last_login} name={res.name} status={res.online_status} picture={res.picture}/>
                         <UserData id={res.id} />
                     </div>
                 )}
