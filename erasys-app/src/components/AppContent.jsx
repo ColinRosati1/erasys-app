@@ -8,6 +8,19 @@ class UserData extends React.Component {
     constructor(){
         super()
     }
+
+    componentDidMount(){
+        fetch("/api/profiles?ids="+this.props.id) // call api endpoint
+        .then( async (response) => {
+            let data = await response.json()
+            console.log(data)
+            return response //await promised data
+          })  
+          .then(async(results) => {
+                console.log(results)
+                await this.setState({results})
+            }).then( () => console.log(this.state.id))
+    }
     render(){
         return(
         <div>
@@ -93,8 +106,8 @@ class Users extends React.Component {
             <div> users
                 <div className="content-wrapper">
                 {items.map(res => <div>
-                        <UserData />
                         <UserComp id={res.id} plus={res.is_plus} log={res.last_login} name={res.name} status={res.online_status} picture={res.picture}/>
+                        <UserData id={res.id} />
                     </div>
                 )}
                 </div>
