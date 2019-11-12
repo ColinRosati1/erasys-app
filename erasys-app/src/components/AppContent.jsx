@@ -1,32 +1,44 @@
 import React from 'react';
 import '../styles/AppContent.css'
 
+const UserDataComp = (props) => {
+    console.log("usrdatacomp", props)
+
+    return(
+        <div>
+
+        </div>
+    )
+}
+
 //Second Class for nested API extended user data
 //renders detailed user data
 //recieves user ID and constructs API call from that
 class UserData extends React.Component {
     constructor(){
         super()
+        this.state = {results: []};
     }
 
     componentDidMount(){
         fetch("/api/profiles?ids="+this.props.id) // call api endpoint
         .then( async (response) => {
             let data = await response.json()
-            console.log(data)
-            return response //await promised data
+            return data //await promised data
           })  
           .then(async(results) => {
                 console.log(results)
                 await this.setState({results})
-            }).then( () => console.log(this.state.id))
+            })
     }
     render(){
-        return(
-        <div>
-            <h1>UserData</h1>
-        </div>
-        )
+        let items = this.state.results;
+        return(<div className={"usr-body"}>
+            {items.map( res => <div>
+            <UserDataComp headline={res.headline} location={res.location} personal={res.personal} sexual={res.sexual}/>
+            </div>
+        )}
+        </div>)
     }
 }
 
