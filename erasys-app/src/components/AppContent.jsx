@@ -40,14 +40,15 @@ const UserComp = (props) => {
         let obj = Object.create(props)
         if (typeof props.picture === "undefined"){ //test if picture prop is available
             console.log('the property is not available...',); // 
-            // obj.picture[url] = 'https://loremflickr.com/424/424/gay,man/all?lock=8764'
+            // obj[picture] = 's'
+            url = 'https://loremflickr.com/424/424/gay,man/all?lock=8764'
             return(
                 <div>
                     <div className="usr-name">{props.name}</div>
                     <div className="usr-log">{props.log}</div> 
                     <div className="usr-status">{stat}</div>
                     <div className="usr-plus">{props.plus}</div>
-                    <div className="usr-pic"><img src='https://loremflickr.com/424/424/gay,man/all?lock=8764'></img></div>
+                    <div className="usr-pic"><img src={url}></img></div>
                 </div>
                 )
         }else{
