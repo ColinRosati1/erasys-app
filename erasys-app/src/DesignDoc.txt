@@ -42,7 +42,7 @@ develop active, favourite, matching features
 develop feature to sort API call.
 I didnt get to any JEST testing. ALthough tried to catch API errors, and missing properties.
 Backend has a bug were the image url key is undefined, not even an empty object.
-No production build. Only works with NPM start
+No production build. Only works with $npm start
 
 
 TODOS
@@ -55,7 +55,11 @@ TODO round minutes to hours , days etc
 
 Steps to Run
 ----------------------
-
+1. Clone this repository
+2. npm install
+3. npm start at js-trail-task dir
+4. cd erasys-app
+5. npm start
 
 
 
