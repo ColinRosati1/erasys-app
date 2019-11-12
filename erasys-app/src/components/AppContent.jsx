@@ -17,12 +17,19 @@ class UserData extends React.Component {
 }
 
 //First class for API fetched data
-//fetch data, JSON check, map each into DOM
+//willmount method for fetch data, JSON check, map each into DOM
 //renders basic user data
 //pass user ID into second user detail
 class Users extends React.Component {
     constructor(){
         super()
+    }
+    componentWillMount(){
+        const url = ""
+        fetch(url)
+        .then( res => res.json())
+        .then( data => popUsr(data) )
+        .catch( err => console.log("error with user fetch data"))
     }
     render(){
         return(
