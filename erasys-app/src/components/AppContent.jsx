@@ -25,10 +25,10 @@ class Users extends React.Component {
         super()
     }
     componentWillMount(){
-        const url = ""
+        const url = "/api/search?length=32"
         fetch(url)
         .then( res => res.json())
-        .then( data => popUsr(data) )
+        .then( data => console.log(data) )
         .catch( err => console.log("error with user fetch data"))
     }
     render(){
