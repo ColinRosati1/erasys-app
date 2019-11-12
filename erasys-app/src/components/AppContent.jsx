@@ -24,8 +24,8 @@ class Users extends React.Component {
     constructor(){
         super()
     }
-    componentWillMount(){
-        const url = "/api/search?length=32"
+    componentDidMount(){
+        const url = "/api/search?length=32";
         fetch(url)
         .then( res => res.json())
         .then( data => console.log(data) )
