@@ -1,5 +1,6 @@
 .App {
   width: 100vw;
+  background: #79ADDC;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,5 +14,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.app-head {
+  padding: 0.3em;
+  font-size: 3em;
 }
 /*# sourceMappingURL=index.css.map */

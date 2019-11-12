@@ -6,6 +6,7 @@
 }
 
 .content-wrapper {
+    background: #FEE9E1;
     font-size: 2em;
     width: 80vw;
     flex-wrap: wrap;
@@ -16,6 +17,19 @@
     width: 420px;
     padding: 0.9em;
     @include flex-center(column, center, center);
+    z-index: 1;
+    &:hover {
+        .usr-data-hover {
+            top: 0px;
+            // display: block;  // to view the hover feature uncommet this display block
+            background: rgba(108, 194, 175, 0.418);
+            z-index: 100;
+        }
+    }
+}
+
+.usr-data-hover {
+    display: none;
 }
 
 .usr-res {
@@ -97,7 +111,7 @@
 
 @media only screen and (min-width: 992px) {
     .profile {
-        width: 100%;
+        width: 420px;
     }
     .usr-res {
         max-width: 100vw;

@@ -22,11 +22,11 @@ Check if data is in JSON
 Array Map results into unique DOM elements with: Username, Age, Image, Location and distance, 
 Headline, Relative last login time (e.g. 6 minutes ago)
 One Api grabs users, id, name, pic, log, status. Second Api gets all other user data.
-Create two react components to populate this data. One nested inside the other after first part
-of user data retreived. This API data will all be in AppContent component. 
+Create two react components to populate this data. One nested inside the other after retreived first set of data.
+This API data will all be in AppContent component. 
 Handle missing data with checks, error catch, or dummy data
 
-The strengths of this design:
+The strengths of this solution:
 ----------------------
 clean visualization
 quick component rendering
@@ -34,20 +34,27 @@ modular components make for readability
 clearly defined state handling
 
 
-weakness of design:
+weakness of solution:
 ----------------------
-
-
+Parent child relationship of components are not styled in a satisfying way.
+lots of TODO details incomplete.
+develop active, favourite, matching features
+develop feature to sort API call.
+I didnt get to any JEST testing. ALthough tried to catch API errors, and missing properties.
+Backend has a bug were the image url key is undefined, not even an empty object.
+No production build. Only works with NPM start
 
 
 TODOS
 ----------------------
 
+TODO make some sort of fixed position info element with active data. event listener on parent 
+rather then nested hover parent in sass.
 
+TODO round minutes to hours , days etc
 
 Steps to Run
 ----------------------
-
 
 
 
