@@ -26,10 +26,14 @@ class Users extends React.Component {
     }
     componentDidMount(){
         const url = "/api/search?length=32";
-        fetch(url)
-        .then( res => res.json())
+        fetch("/api/search?length=32")
+        .then( async (response) => {
+            let data = await response.json()
+            console.log(data.items)
+            return data.items //await promised data
+        })
         .then( data => console.log(data) )
-        .catch( err => console.log("error with user fetch data"))
+        // .catch( err => console.log("error with user fetch data"))
     }
     render(){
         return(
