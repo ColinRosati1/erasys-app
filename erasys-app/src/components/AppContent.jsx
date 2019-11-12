@@ -16,6 +16,16 @@ class UserData extends React.Component {
     }
 }
 
+//create User component to  put data into DOM
+const UserComp = (props) => {
+        console.log(props)
+        return(
+        <div>
+
+        </div>
+        )
+}
+
 //First class for API fetched data
 //willmount method for fetch data, JSON check, map each into DOM
 //renders basic user data
@@ -47,12 +57,9 @@ class Users extends React.Component {
                 {items.map(res => <div>
                     {console.log(res)}
                         <UserData />
+                        <UserComp id={res.id} plus={res.is_plus} log={res.last_login} name={res.name} status={res.online_status} picture={res.picture}/>
                     </div>
-                )
-
-                   
-                }
-                    
+                )}
                 </div>
             </div>
         )
